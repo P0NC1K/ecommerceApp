@@ -1,0 +1,64 @@
+$primaryColor: #4a4a4a;
+
+.ProductMenu-item {
+    min-width: 30%; 
+    height: 300px;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $primaryColor;
+    margin: 0 7.5px 15px;
+    position: relative;
+    overflow: hidden;
+
+    
+    .background-img {
+        height: 100%;
+        width: 100%;
+    }
+
+    &:hover {
+        cursor: pointer;
+
+        & .background-img {
+            transform: scale(1.1);
+            transition: all 2s;
+        }
+
+        & .Item-component {
+            opacity: 0.9
+        }
+    }
+    
+    &.large {
+        height: 400px;
+    }
+    
+    .Item-component {
+        height: 90px;
+        padding: 0 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-transform:uppercase;
+        border: 1px solid $primaryColor;
+        background-color: #fff;    
+        opacity: 0.7;
+        position: absolute;
+        
+        .title {
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 22px;
+            color: $primaryColor;
+        }
+        
+        .subtitle {
+            font-weight: 300;
+            font-style: italic;
+            font-size: 16px;
+        }
+    }
+}
