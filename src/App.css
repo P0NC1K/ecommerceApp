@@ -6,3 +6,8 @@ body {
     font-family: 'Glory', sans-serif;
     padding: 20px 80px;
 }
+
+a {
+    color: #000;
+    text-decoration: none;
+}

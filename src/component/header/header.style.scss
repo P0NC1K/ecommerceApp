@@ -1,0 +1,29 @@
+.header {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.logo-container {
+        width: 20%;
+        height: 100%;
+        padding: 5px;
+
+        .logo {
+            height: 100%;
+        }
+}
+
+.link-list {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .list-element {
+        padding: 0 15px;
+    }
+}
