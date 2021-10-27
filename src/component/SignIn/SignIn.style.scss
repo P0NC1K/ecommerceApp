@@ -1,5 +1,11 @@
 .SignIn-container {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
+    width: 25%;
+
+    .buttonWrapper {
+        display: flex;
+
+        .CustomButton:not(:first-child) {
+            margin-left: 20px;
+        }
+    }
 }

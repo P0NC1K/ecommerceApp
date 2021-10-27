@@ -5,15 +5,15 @@ import ArrowHover from '../../assets/arrow.png'
 
 const CustomButton = ({ children, ...OtherProps }) => (
 
-    <div class="CustomButton">
+    <button class="CustomButton" { ...OtherProps }>
         <div class="dub-arrow">
             <img src={ ArrowHover } alt="Arrow" />
         </div>
 
-        <button { ...OtherProps }>
+        <button>
             { children }
         </button>
-    </div>
+    </button>
 )
 
 export default CustomButton;
