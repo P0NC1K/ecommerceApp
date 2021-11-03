@@ -1,0 +1,12 @@
+.SignContainer {
+    display: flex;
+    justify-content:center;
+    align-items: flex-start;
+    min-height: 50vh;
+
+    .SignComponent {
+        width: 100%;
+        max-width: 400px;
+        margin: 50px 70px;
+    }
+}
