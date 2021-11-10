@@ -1,12 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import './header.style.scss';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
-import { auth } from '../../firebase/firebase.config';
+import { useAuth } from '../../contexts/AuthContext.context';
+import { Alert } from 'react-bootstrap';
 
-const Header = ({ currentUser }) => {
+const Header = () => {
+    const [error, setError] = useState("");
+    const { currentUser, logout } = useAuth();
+    const history = useHistory();
+
+    async function handleLogOut() {
+        try {
+            setError("");
+            await logout();
+            history.push('/signIn')
+        }catch {
+            setError("Failed to logout")
+        }
+    }
+
+    console.log(currentUser)
+
     return (
         <div className="header">
             <Link className='logo-container' to='/'>
@@ -22,7 +39,11 @@ const Header = ({ currentUser }) => {
                 </Link>
                 {
                     currentUser ? (
-                        <div className='list-element' onClick={() => auth.signOut()}>SIGN OUT</div>
+                        <>
+                            { error && <Alert variant='danger'> { error } </Alert> }
+                            <div className='list-element' onClick={ handleLogOut }> SIGN OUT </div>
+                            <Link className='list-element' to='/userProfile'> {currentUser.displayName} </Link>
+                        </>
                     ) : (
                         <Link className='list-element' to='/signin'> SIGN UP/SIGN IN </Link>
                     )

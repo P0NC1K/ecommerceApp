@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import PrivateRoute from './component/PrivateRoute/PrivateRoute.component';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
@@ -14,11 +15,11 @@ export default function App() {
 
   return (
     <div className="App">
-        <Header/>
           <AuthProvider>
+            <Header/>
             <Switch>
               <Route exact path='/' component={HomePage} /> 
-              <Route exact path='/shop' component={ShopPage} /> 
+              <PrivateRoute exact path='/shop' component={ShopPage} /> 
               <Route exact path='/signin' component={SignInSignOut} />
             </Switch>
           </AuthProvider>
